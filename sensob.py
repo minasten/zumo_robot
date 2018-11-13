@@ -13,6 +13,10 @@ class Sensob:
         return "There is no sensors connected to this sensob :("
 
 
+    def get_value(self):
+        return self.value
+
+
 
 class Reflect(Sensob):
     def __init__(self):
