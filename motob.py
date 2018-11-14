@@ -17,15 +17,15 @@ class Motob():
     def operationalize(self, new_rec):
         if new_rec in self.value:
             if new_rec[0] == "F":
-                self.motors.forward(new_rec[1], 1)
+                self.motors.forward(new_rec[1], 0.2)
             elif new_rec[0] == "B":
-                self.motors.backward(new_rec[1], 1)
+                self.motors.backward(new_rec[1], 0.2)
             elif new_rec[0] == "S":
                 self.motors.stop()
             elif new_rec[0] == "L":
-                self.motors.set_value([0, new_rec[1]], 1)
+                self.motors.set_value([0, new_rec[1]], 0.8)
             elif new_rec[0] == "R":
-                self.motors.set_value([new_rec[1], 0], 1)
+                self.motors.set_value([new_rec[1], 0], 0.8)
             elif new_rec[0] == "TL":
                 self.motors.left(new_rec[1], 1)
             elif new_rec[0] == "TR":

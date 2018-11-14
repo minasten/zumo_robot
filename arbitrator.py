@@ -1,10 +1,10 @@
-#import bbcon
 import random
 
-class Arbitrator():
+
+class Arbitrator:
 
     def __init__(self):
-        active_behavior = self.active_behavior
+        pass
 
 
     def choose_action(self, active_behaviors, stochastic=False):
@@ -16,12 +16,17 @@ class Arbitrator():
 
     #Arbitrator picks the behavios with the highest weight
     def deterministic(self, active_behaviors):
-        highest_weight = []
+        highest_weight = 0
         best_behavior = None
+        print(active_behaviors)
+        if not active_behaviors:
+            return (['S'], False)
         for b in active_behaviors:
+            print(b)
             if b.weight >= highest_weight:
                 highest_weight = b.weight
                 best_behavior = b
+
         return (best_behavior.motor_recommendations, best_behavior.halt_request)
 
 

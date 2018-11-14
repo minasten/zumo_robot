@@ -28,6 +28,7 @@ class Bbcon:
 
     def update_all_sensobs(self):
         for s in self.sensobs:
+            #print(s)
             s.update()
 
     def update_all_behaviours(self):
@@ -58,4 +59,4 @@ class Bbcon:
         #for i in self.motobs:
         self.motobs[0].update(best_behaviour)
 
-        sleep(0.1)
+        sleep(0.01)

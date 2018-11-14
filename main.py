@@ -17,6 +17,7 @@ def main():
 
     ultrasonic = UltraSonic()
     ultrasonic.update()
+    ultrasonic.update()
     camera = Camera()
     reflect = Reflect()
 

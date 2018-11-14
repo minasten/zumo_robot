@@ -30,6 +30,7 @@ class Reflect(Sensob):
             if liste[e] <= 0.2:
                 values.append(e)
         self.value = values
+        print('reflect: ' + str(self.value))
         return self.value
 
 
@@ -37,7 +38,7 @@ class Reflect(Sensob):
 class Camera(Sensob):
     def __init__(self):
         self.sensors = camera.Camera()
-        self.value = None
+        self.value = 0
 
     def update(self):
         pict = self.sensors.update()
@@ -47,6 +48,8 @@ class Camera(Sensob):
             if (i[0] >= 200) and (i[1] <= 100) and (i[2] <= 100):
                 counter += 1
         pict.show()
+        self.value = (counter * 100 / len(img))
+        print('camera: ' + str(self.value))
         return (counter * 100 / len(img))
 
 
@@ -54,10 +57,12 @@ class Camera(Sensob):
 class UltraSonic(Sensob):
     def __init__(self):
         self.sensors = ultrasonic.Ultrasonic()
-        self.value = None
+        self.value = 20
 
     def update(self):
         self.sensors.update()
+        self.value = self.sensors.get_value()
+        print('stop?: ' + str(self.value))
         return self.sensors.get_value()
 
 """
@@ -75,4 +80,5 @@ if __name__ == "__main__":
         print('REFLECTANCE:')
         print(ref.update())
         sleep(1)
+
 """
